@@ -3,7 +3,7 @@ unit uGarbageCollector;
 interface
 
 uses
-  System.Generics.Collections, Rtti, System.Defer, System.Classes,
+  System.Generics.Collections, Rtti, System.Classes,
   System.SysUtils;
 
 type
