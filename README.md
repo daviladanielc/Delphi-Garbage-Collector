@@ -16,7 +16,7 @@ Add the folder where uGarbageCollector.pas is located to the Delphi library path
 
 If you believe you can help improve this repository, please submit a PR, and I will review it. Any assistance is welcome.
 
-## Delphi vesions 
+## Delphi versions 
   - Tested in Delphi 11.0
   > I recommend using Delphi XE or better.
 
