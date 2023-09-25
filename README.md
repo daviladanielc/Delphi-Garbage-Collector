@@ -3,14 +3,22 @@
 
 # Description
 
-Uma tentativa de automatização no processo de liberação de objetos em Delphi sem a necessidade de utilizar blocos Try Finally para liberar objetos após o uso.
+An attempt at automating the process of releasing objects in Delphi without the need to use Try Finally blocks to free objects after their usage.
 
-Utiliza uma classe principal para coletar objetos criados durante o uso e liberar os mesmos após a destruição do objeto principal (por exemplo um TForm)
-Também permite utilizar a TAutoCollect que é uma classe interfaceada que permite criar classes simples a classes complexas para serem liberadas após a saída do escopo de execução, parecido com o funcionamento de interfaces. 
+It utilizes a main class to collect objects created during usage and release them upon the destruction of the main object (for example, a TForm).
+It also allows using TAutoCollect, which is an interfaced class that enables the creation of simple to complex classes to be freed upon exiting the execution scope, similar to how interfaces work.
 
 ## Using
 
-Adicione no library path do delphi ou no search path do seu projeto a pasta onde está o uGarbageCollector.pas
+Add the folder where uGarbageCollector.pas is located to the Delphi library path or to your project's search path.
+
+## Contribution
+
+If you believe you can help improve this repository, please submit a PR, and I will review it. Any assistance is welcome.
+
+## Delphi vesions 
+  - Tested in Delphi 11.0
+  > I recommend using Delphi XE or better.
 
 Object
 ```pascal
