@@ -8,7 +8,7 @@ An attempt at automating the process of releasing objects in Delphi without the 
 It utilizes a main class to collect objects created during usage and release them upon the destruction of the main object (for example, a TForm).
 It also allows using TAutoCollect, which is an interfaced class that enables the creation of simple to complex classes to be freed upon exiting the execution scope, similar to how interfaces work.
 
-## Using
+## Instalation
 
 Add the folder where uGarbageCollector.pas is located to the Delphi library path or to your project's search path.
 
@@ -19,6 +19,8 @@ If you believe you can help improve this repository, please submit a PR, and I w
 ## Delphi vesions 
   - Tested in Delphi 11.0
   > I recommend using Delphi XE or better.
+
+## Usage
 
 Object
 ```pascal
