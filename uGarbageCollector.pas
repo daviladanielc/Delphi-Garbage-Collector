@@ -32,6 +32,7 @@ type
     constructor Create(AOwner: TComponent); override;
     function Add<T: class>(AClass: T): T; overload;
     procedure Collect(AObject: TObject);
+    procedure Clear;
   end;
 
 var
@@ -73,6 +74,15 @@ begin
 
   FClassDictionary.Add(obj, AClassType);
   Result := AClass;
+end;
+
+procedure TGarbageCollector.Clear;
+var
+  LObj: TObject;
+begin
+
+  for LObj in FClassDictionary.Keys do
+    FClassDictionary.Remove(LObj);
 end;
 
 procedure TGarbageCollector.Collect(AObject: TObject);

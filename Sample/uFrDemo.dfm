@@ -4,7 +4,7 @@ object frDemo: TfrDemo
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Garbage Collector Demo'
-  ClientHeight = 153
+  ClientHeight = 172
   ClientWidth = 211
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -27,7 +27,7 @@ object frDemo: TfrDemo
   end
   object Button2: TButton
     Left = 13
-    Top = 48
+    Top = 46
     Width = 185
     Height = 25
     Caption = 'Local variable with Collect'
@@ -36,7 +36,7 @@ object frDemo: TfrDemo
   end
   object Button3: TButton
     Left = 13
-    Top = 79
+    Top = 75
     Width = 185
     Height = 25
     Caption = 'Global Variable'
@@ -45,11 +45,20 @@ object frDemo: TfrDemo
   end
   object Button4: TButton
     Left = 13
-    Top = 110
+    Top = 104
     Width = 185
     Height = 25
     Caption = 'Local variable with TAutoFree'
     TabOrder = 3
     OnClick = Button4Click
+  end
+  object Button5: TButton
+    Left = 13
+    Top = 133
+    Width = 185
+    Height = 25
+    Caption = 'GarbageCollector Clear'
+    TabOrder = 4
+    OnClick = Button5Click
   end
 end

@@ -8,6 +8,13 @@ An attempt at automating the process of releasing objects in Delphi without the 
 It utilizes a main class to collect objects created during usage and release them upon the destruction of the main object (for example, a TForm).
 It also allows using TAutoCollect, which is an interfaced class that enables the creation of simple to complex classes to be freed upon exiting the execution scope, similar to how interfaces work.
 
+The idea behind this project is not to require the programmer to migrate their classes to an interface and to improve memory management. 
+With the TAutoCollect class, it's possible to turn a simple class into something like a interface without implementing anything new.
+
+## Pending features
+
+-> Allow the TGargabeCollector to create objects for a specific 'owner' and enable releasing only the objects created for that owner
+
 ## Instalation
 
 Add the folder where uGarbageCollector.pas is located to the Delphi library path or to your project's search path.
@@ -41,7 +48,7 @@ end;
 
 ```
 
-LTest será liberada quando Garbage for destruído. 
+LTest will be released when Garbage is destroyed
 ```pascal
 
 var
@@ -60,7 +67,7 @@ end;
 
 ```
 
-Com parâmetros de input no create da classe a ser coletada
+With input parameters in the create of the class to be collected
 
 ```pascal
 begin
@@ -68,7 +75,7 @@ begin
 end;
 ```
 
-Exemplo de uso da classe TAutoCollect
+Example of how to use the TAutoCollect class
 
 ```pascal
 var
@@ -83,4 +90,4 @@ end;
 
 ```
 
-Na pasta sample tem mais alguns exemplos de uso. 
+In the 'sample' folder, there are more usage examples

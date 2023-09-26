@@ -4,14 +4,15 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, uGarbageCollector;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, uGarbageCollector, Uni;
 
 type
   TMyClass = class
   private
     FParam: String;
   public
-    constructor Create; overload;
+    procedure DoRaise;
+     constructor Create; overload;
     constructor Create(AParam: string);overload;
     destructor Destroy;override;
   end;
@@ -21,13 +22,16 @@ type
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
+    Button5: TButton;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
   private
     { Private declarations }
+    procedure DoSomething(AObj: TMyClass);
   public
     { Public declarations }
     FTestClass: TMyClass;
@@ -83,11 +87,30 @@ begin
   LTest.Add('1');
   LTest.Add('2');
   LTest.Add('3');
-  LLocal.FParam:= 'test';
+  DoSomething(LLocal); //<-- You can change the scope of execution and use the object in another function/procedure, and the object will be released after that.
+  LLocal.FParam:= ' Value after Do Something';
   Showmessage(LLocal.FParam);
   SHowMessage(LTest.Text);
   //LLocal its destroyed here
   //LTest its destroyed here
+end;
+
+procedure TfrDemo.Button5Click(Sender: TObject);
+var
+  LTest: TMyClass;
+  LStr: TStringList;
+begin
+
+  LTest:= Garbage.Add<TMyClass>(TMyClass.Create);
+  LStr:= Garbage.Add<TStringList>(TStringList.Create);
+
+  Garbage.Clear; //clear everything
+end;
+
+procedure TfrDemo.DoSomething(AObj: TMyClass);
+begin
+  AObj.FParam:= 'Value of Do Something';
+  ShowMessage(AObj.FParam);
 end;
 
 procedure TfrDemo.FormCreate(Sender: TObject);
@@ -106,6 +129,11 @@ destructor TMyClass.Destroy;
 begin
   Showmessage('TMyclass destroy');
   inherited;
+end;
+
+procedure TMyClass.DoRaise;
+begin
+  raise Exception.Create('Ops, error');
 end;
 
 constructor TMyClass.Create;
